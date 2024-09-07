@@ -5,11 +5,11 @@ This repository contains implementations of standard algorithms like Bubble Sort
 ## Roadmap
 
 - [ ] Project Setup
-  - [ ] README file
-  - [ ] Git commit message template
-  - [ ] Ignoring files
+  - [X] README file
+  - [X] Git commit message template
+  - [X] Ignoring files
   - [ ] Git hooks for static code analysis
-  - [ ] Makefile
+  - [X] Makefile
 - [ ] GitHub Actions
   - [ ] Continuous integration
   - [ ] Code Coverage
@@ -37,6 +37,24 @@ This repository contains implementations of standard algorithms like Bubble Sort
 ## Requirements
 
 Go version 1.18 or higher.
+
+## Make Commands
+
+This project uses a Makefile to automate common development tasks. Here are the available commands:
+
+- `make run`: Run the application
+- `make test`: Run the test suite
+- `make fmt`: Format all Go source files
+- `make tidy`: Tidy up the Go modules
+- `make help`: Display help information about available commands
+
+To enable verbose output for any command, you can use the VERBOSE=1 flag. For example:
+
+```
+make run VERBOSE=1
+```
+
+This will display all the commands being executed.
 
 ## Commit Message Template
 
