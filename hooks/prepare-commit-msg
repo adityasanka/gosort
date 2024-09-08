@@ -3,5 +3,13 @@ COMMIT_MSG_FILE=$1
 COMMIT_SOURCE=$2
 SHA1=$3
 
-# Copy the content of .gitmessage to the commit message file
-cat .gitmessage > "$COMMIT_MSG_FILE"
+# Check if we're amending a commit
+if [ "$COMMIT_SOURCE" = "message" ]; then
+    # We're amending, so append the template to the existing message
+    # Add a blank line for separation
+    echo "" >> "$COMMIT_MSG_FILE"
+    cat .gitmessage >> "$COMMIT_MSG_FILE"
+else
+    # Not amending, so use the template as before
+    cat .gitmessage > "$COMMIT_MSG_FILE"
+fi

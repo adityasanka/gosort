@@ -1,6 +1,8 @@
 # Use bash as the shell
 SHELL := /bin/bash
 
+APP=hello
+
 # .ONESHELL ensures that all commands in a target are executed in a single shell instance.
 # This allows for environment variables and working directory changes to persist across commands within a target.
 # It's particularly useful for multi-line commands or when using shell-specific features.
@@ -12,23 +14,36 @@ $(VERBOSE).SILENT:
 
 .DEFAULT_GOAL := run
 
-.PHONY: tidy run test help
+.PHONY: install fmt lint run test help
 
-## tidy: Add missing deps, remove unused ones, and download necessary modules
-tidy:
+## install: Install project dependencies
+install:
+	## Add missing deps, remove unused ones, and download necessary modules
 	go mod tidy
 
 ## fmt: Format all Go source files
 fmt:
 	go fmt ./...
 
+## lint: Lint all Go source files
+lint:
+	revive -config revive.toml -formatter friendly
+
 ## run: Run the application
-run: tidy fmt
+run: install
 	go run hello.go
 
 ## test: Run tests for the application
-test: fmt
+test: install
 	go test
+
+## build: Build the application
+build: clean install
+	# remove stale binaries
+	rm -f ${APP}
+	go clean
+
+	go build -o ${APP}
 
 ## help: Display help information about available commands
 help:

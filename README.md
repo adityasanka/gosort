@@ -1,22 +1,25 @@
 # Sorting Algorithms in Go
 
+[![Build Status](https://github.com/adityasanka/gosort/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/adityasanka/gosort/actions/workflows/build.yml)
+[![Tests](https://github.com/adityasanka/gosort/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/adityasanka/gosort/actions/workflows/tests.yml)
+
 This repository contains implementations of standard algorithms like Bubble Sort, Merge Sort, Quick Sort, and others, with clear and concise explanations. This project focuses on learning and applying best practices rather than production-grade performance or optimization.
 
 ## Roadmap
 
-- [ ] Project Setup
+- [X] Project Setup
   - [X] README file
   - [X] Git commit message template
   - [X] Ignoring files
-  - [ ] Git hooks for static code analysis
   - [X] Makefile
 - [ ] GitHub Actions
-  - [ ] Continuous integration
+  - [X] Continuous integration
   - [ ] Code Coverage
   - [ ] Publishing a module
 - [ ] Badges
   - [ ] Go Report Card
-  - [ ] Test Status
+  - [X] Build Status
+  - [X] Test Status
   - [ ] Test Coverage
   - [ ] License
   - [ ] Go Doc
@@ -42,10 +45,12 @@ Go version 1.18 or higher.
 
 This project uses a Makefile to automate common development tasks. Here are the available commands:
 
+- `make install`: Install project dependencies
+- `make fmt`: Format all source files
+- `make lint`: Lint all source files
+- `make test`: Run tests
 - `make run`: Run the application
-- `make test`: Run the test suite
-- `make fmt`: Format all Go source files
-- `make tidy`: Tidy up the Go modules
+- `make build`: Build the application
 - `make help`: Display help information about available commands
 
 To enable verbose output for any command, you can use the VERBOSE=1 flag. For example:
