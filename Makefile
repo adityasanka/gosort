@@ -27,7 +27,7 @@ fmt:
 
 ## lint: Lint all Go source files
 lint:
-	revive -config revive.toml -formatter friendly
+	golangci-lint run
 
 ## run: Run the application
 run: install
