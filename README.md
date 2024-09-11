@@ -2,6 +2,7 @@
 
 [![Build Status](https://github.com/adityasanka/gosort/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/adityasanka/gosort/actions/workflows/build.yml)
 [![Tests](https://github.com/adityasanka/gosort/actions/workflows/test.yml/badge.svg?branch=master)](https://github.com/adityasanka/gosort/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This repository contains implementations of standard algorithms like Bubble Sort, Merge Sort, Quick Sort, and others, with clear and concise explanations. This project focuses on learning and applying best practices rather than production-grade performance or optimization.
 
@@ -21,7 +22,7 @@ This repository contains implementations of standard algorithms like Bubble Sort
   - [X] Build Status
   - [X] Test Status
   - [ ] Test Coverage
-  - [ ] License
+  - [X] License
   - [ ] Go Doc
 - [ ] Implement Sorting Algorithms
   - [ ] Bubble Sort
@@ -55,7 +56,7 @@ This project uses a Makefile to automate common development tasks. Here are the 
 
 To enable verbose output for any command, you can use the VERBOSE=1 flag. For example:
 
-```
+```sh
 make run VERBOSE=1
 ```
 
@@ -63,20 +64,13 @@ This will display all the commands being executed.
 
 ## Commit Message Template
 
-To use the project's commit message template:
+Run this command in the repository root folder to use the project's commit message template:
 
-1. Copy the prepare-commit-msg hook:
-   ```
-   cp hooks/prepare-commit-msg .git/hooks/
-   chmod +x .git/hooks/prepare-commit-msg
-   ```
+```sh
+git config commit.template $PWD/.gitmessage
+```
 
-2. Set the commit template:
-   ```
-   git config commit.template .gitmessage
-   ```
-
-These steps will ensure you're using the project's commit message format.
+This can be useful for ensuring consistent commit message format across the project.
 
 ## Contributing
 
