@@ -1,18 +1,22 @@
-run:
-  timeout: 5m
-  modules-download-mode: readonly
-  allow-serial-runners: true
-
-output:
-  sort-results: true
-  uniq-by-line: false
-
 linters:
   enable:
+    - cyclop
+    - copyloopvar
+    - gocritic
     - gofumpt
+    - goimports
+    - gosec
+    - ineffassign
+    - misspell
+    - prealloc
+    - unconvert
+    - unparam
     - revive
+    - whitespace
 
 linters-settings:
+  goimports:
+    local-prefixes: github.com/adityasanka/gosort
   revive:
     rules:
       - name: blank-imports
@@ -38,3 +42,14 @@ linters-settings:
       - name: unused-parameter
       - name: unreachable-code
       - name: redefines-builtin-id
+  whitespace:
+    multi-func: true
+
+issues:
+  # The 'exclude-use-default: false' setting under 'issues' means that
+  # golangci-lint will not use its default exclusions for issues.
+  # By default, golangci-lint excludes certain types of issues
+  # (like auto-generated files). Setting this to false ensures
+  # that all issues are reported, giving more control to the user
+  # but potentially increasing the number of reported issues.
+  exclude-use-default: false
