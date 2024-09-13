@@ -12,7 +12,7 @@ APP=hello
 # Silent mode by default, use VERBOSE=1 to enable verbose output
 $(VERBOSE).SILENT:
 
-.DEFAULT_GOAL := run
+.DEFAULT_GOAL :=run
 
 .PHONY: install fmt lint run test help
 
@@ -31,19 +31,20 @@ lint:
 
 ## run: Run the application
 run: install
-	go run hello.go
+	go run ./cmd/hello.go
 
 ## test: Run tests for the application
 test: install
-	go test
+	go test ./...
 
-## build: Build the application
-build: clean install
-	# remove stale binaries
+## clean: Remove stale binaries
+clean:
 	rm -f ${APP}
 	go clean
 
-	go build -o ${APP}
+## build: Build the application
+build: clean install
+	go build -o ${APP} ./cmd/hello
 
 ## help: Display help information about available commands
 help:
