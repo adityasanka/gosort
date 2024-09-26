@@ -50,8 +50,9 @@ This project uses a Makefile to automate common development tasks. Here are the 
 - `make fmt`: Format all source files
 - `make lint`: Lint all source files
 - `make test`: Run tests
-- `make run`: Run the application
-- `make build`: Build the application
+- `make bench`: Run benchmarks
+- `make run`: Run the cmd line app
+- `make build`: Build the cmd line app
 - `make help`: Display help information about available commands
 
 To enable verbose output for any command, you can use the VERBOSE=1 flag. For example:

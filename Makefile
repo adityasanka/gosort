@@ -14,7 +14,7 @@ $(VERBOSE).SILENT:
 
 .DEFAULT_GOAL :=run
 
-.PHONY: install fmt lint run test help
+.PHONY: install fmt lint run test bench help
 
 ## install: Install project dependencies
 install:
@@ -29,22 +29,28 @@ fmt:
 lint:
 	golangci-lint run
 
-## run: Run the application
-run: install
-	go run ./cmd/hello.go
-
 ## test: Run tests for the application
 test: install
 	go test ./...
+
+## bench: Run benchmarks for the application
+bench: install
+	go test -bench=. -benchmem ./...
 
 ## clean: Remove stale binaries
 clean:
 	rm -f ${APP}
 	go clean
 
-## build: Build the application
+## build: Build the cmd line application
 build: clean install
 	go build -o ${APP} ./cmd/hello
+
+## run: Run the cmd line application
+run: build
+	chmod +x ${APP}
+	./${APP}
+	@make clean
 
 ## help: Display help information about available commands
 help:
